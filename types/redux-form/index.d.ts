@@ -4,29 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import {
-  ComponentClass,
-  StatelessComponent,
-  ReactElement
-} from "react";
-
 export type FieldType = "Field" | "FieldArray";
-
-export interface ErrorOther<T = void> {
-    _error?: T;
-}
-
-export type FormErrors<FormData = {}, T = void> = {
-    [P in keyof FormData]?: ReactElement<any> | string | ErrorOther<T>;
-};
-
-export interface WarningOther<T = void> {
-    _warning?: T;
-}
-
-export type FormWarnings<FormData = {}, T = void> = {
-    [P in keyof FormData]?: ReactElement<any> | string | WarningOther<T>;
-};
 
 export interface RegisteredFieldState {
     name: string;
@@ -39,6 +17,7 @@ export type Omit<T, K extends keyof T> = Pick<T, Diff<keyof T, K>>;
 
 export * from "redux-form/lib/actions";
 export * from "redux-form/lib/actionTypes";
+export * from "redux-form/lib/errors";
 export * from "redux-form/lib/Field";
 export * from "redux-form/lib/FieldArray";
 export * from "redux-form/lib/Fields";
