@@ -44,8 +44,8 @@ export declare function clearAsyncError(form: string, field: string): FormAction
 export declare function touch(form: string, ...fields: string[]): FormAction;
 export declare function unregisterField(form: string, name: string): FormAction;
 export declare function untouch(form: string, ...fields: string[]): FormAction;
-export declare function updateSyncErrors(from: string, syncErrors: FormErrors<FormData>, error: any): FormAction;
-export declare function updateSyncWarnings(form: string, syncWarnings: FormWarnings<FormData>, warning: any): FormAction;
+export declare function updateSyncErrors(from: string, syncErrors: FormErrors<keyof FormData>, error: any): FormAction;
+export declare function updateSyncWarnings(form: string, syncWarnings: FormWarnings<keyof FormData>, warning: any): FormAction;
 
 declare const actions: {
     arrayInsert: typeof arrayInsert,

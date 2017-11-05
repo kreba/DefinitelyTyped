@@ -1,7 +1,7 @@
 import { FormErrors } from "redux-form";
 
 export type DataSelector<FormData = {}, State = {}> = (formName: string) => (state: State) => FormData;
-export type ErrorSelector<FormData = {}, State = {}> = (formName: string) => (state: State) => FormErrors<FormData>;
+export type ErrorSelector<FormData = {}, State = {}> = (formName: string) => (state: State) => FormErrors<keyof FormData>;
 export type BooleanSelector<State = {}> = (formName: string) => (state: State) => boolean;
 
 declare const getFormValues: DataSelector;

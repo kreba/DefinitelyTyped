@@ -1,17 +1,9 @@
-import { ReactElement } from "react";
+import { ReactNode } from "react";
 
-export interface ErrorOther<T = void> {
-    _error?: T;
-}
-
-export type FormErrors<FormData = {}, T = void> = {
-    [P in keyof FormData]?: ReactElement<any> | string | ErrorOther<T>;
+export type FormErrors<TFieldName = string, TErrValue = ReactNode> = {
+    [target in TFieldName & "_error"]?: TErrValue;
 };
 
-export interface WarningOther<T = void> {
-    _warning?: T;
-}
-
-export type FormWarnings<FormData = {}, T = void> = {
-    [P in keyof FormData]?: ReactElement<any> | string | WarningOther<T>;
+export type FormWarnings<TFieldName = string, TErrValue = ReactNode> = {
+    [target in TFieldName & "_warning"]?: TErrValue;
 };

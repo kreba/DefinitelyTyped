@@ -10,15 +10,13 @@ import {
 import { Dispatch } from "redux";
 import {
     FormErrors,
-    ErrorOther,
     FormWarnings,
-    WarningOther,
     RegisteredFieldState,
     FormStateMap
 } from "redux-form";
 
 export type FormSubmitHandler<FormData = {}, P = {}> =
-    (values: Partial<FormData>, dispatch: Dispatch<any>, props: P) => void | FormErrors<FormData> | Promise<any>;
+    (values: Partial<FormData>, dispatch: Dispatch<any>, props: P) => void | FormErrors<keyof FormData> | Promise<any>;
 
 export interface SubmitHandler<FormData = {}, P = {}> {
     (handler: FormSubmitHandler<FormData, P>): FormEventHandler<any>;
@@ -34,7 +32,7 @@ export interface ValidateCallback<FormData, P> {
 }
 
 export interface AsyncValidateCallback<FormData> {
-    asyncErrors?: FormErrors<FormData>;
+    asyncErrors?: FormErrors<keyof FormData>;
     initialized: boolean;
     trigger: "blur" | "submit";
     blurredField?: string;
@@ -104,7 +102,7 @@ export interface ConfigProps<FormData = {}, P = {}> {
     keepDirtyOnReinitialize?: boolean;
     onChange?: (values: Partial<FormData>, dispatch: Dispatch<any>, props: P & InjectedFormProps<FormData, P>) => void;
     onSubmit?: FormSubmitHandler<FormData, P & InjectedFormProps<FormData, P>>;
-    onSubmitFail?(errors: FormErrors<FormData>, dispatch: Dispatch<any>, submitError: any, props: P & InjectedFormProps<FormData, P>): void;
+    onSubmitFail?(errors: FormErrors<keyof FormData>, dispatch: Dispatch<any>, submitError: any, props: P & InjectedFormProps<FormData, P>): void;
     onSubmitSuccess?(result: any, dispatch: Dispatch<any>, props: P & InjectedFormProps<FormData, P>): void;
     propNamespace?: string;
     pure?: boolean;
@@ -113,8 +111,8 @@ export interface ConfigProps<FormData = {}, P = {}> {
     touchOnBlur?: boolean;
     touchOnChange?: boolean;
     persistentSubmitErrors?: boolean;
-    validate?(values: FormData, props: P & InjectedFormProps<FormData, P>): FormErrors<FormData>;
-    warn?(values: FormData, props: P & InjectedFormProps<FormData, P>): FormWarnings<FormData>;
+    validate?(values: FormData, props: P & InjectedFormProps<FormData, P>): FormErrors<keyof FormData>;
+    warn?(values: FormData, props: P & InjectedFormProps<FormData, P>): FormWarnings<keyof FormData>;
 }
 
 export interface FormInstance<FormData, P> extends Component<P> {

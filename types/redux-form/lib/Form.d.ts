@@ -1,6 +1,6 @@
 import { Component, FormHTMLAttributes, FormEvent, FormEventHandler } from "react";
 import { Dispatch } from "redux";
-import { FormProps, FormErrors, FormSubmitHandler, Omit } from "redux-form";
+import { FormProps, FormSubmitHandler, Omit } from "redux-form";
 
 interface FormSubmitProp {
     onSubmit?: FormSubmitHandler;
