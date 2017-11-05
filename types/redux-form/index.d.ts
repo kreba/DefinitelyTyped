@@ -37,16 +37,16 @@ export interface RegisteredFieldState {
 export type Diff<T extends string, U extends string> = ({ [P in T]: P } & { [P in U]: never } & { [x: string]: never })[T];
 export type Omit<T, K extends keyof T> = Pick<T, Diff<keyof T, K>>;
 
-export * from "redux-form/lib/reduxForm";
+export * from "redux-form/lib/actions";
+export * from "redux-form/lib/actionTypes";
 export * from "redux-form/lib/Field";
-export * from "redux-form/lib/Fields";
 export * from "redux-form/lib/FieldArray";
+export * from "redux-form/lib/Fields";
 export * from "redux-form/lib/Form";
 export * from "redux-form/lib/FormSection";
 export * from "redux-form/lib/formValues";
 export * from "redux-form/lib/formValueSelector";
 export * from "redux-form/lib/reducer";
-export * from "redux-form/lib/SubmissionError";
-export * from "redux-form/lib/actions";
-export * from "redux-form/lib/actionTypes";
+export * from "redux-form/lib/reduxForm";
 export * from "redux-form/lib/selectors";
+export * from "redux-form/lib/SubmissionError";
