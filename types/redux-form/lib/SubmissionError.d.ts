@@ -4,4 +4,4 @@ export interface SubmissionErrorConstructor<T> {
     new (errors?: FormErrors<T>): Error;
 }
 
-declare const SubmissionError: SubmissionErrorConstructor<any>;
+export declare const SubmissionError: SubmissionErrorConstructor<any>;
