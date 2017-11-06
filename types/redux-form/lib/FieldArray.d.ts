@@ -17,7 +17,7 @@ export interface GenericFieldArray<Field, P = {}> extends Component<BaseFieldArr
     getRenderedComponent(): Component<WrappedFieldArrayProps<Field> & P>;
 }
 
-export class FieldArray<P = {}> extends Component<BaseFieldArrayProps<P> & P> implements GenericFieldArray<any, P> {
+export declare class FieldArray<P = {}> extends Component<BaseFieldArrayProps<P> & P> implements GenericFieldArray<any, P> {
     name: string;
     valid: boolean;
     getRenderedComponent(): Component<WrappedFieldArrayProps<any> & P>;

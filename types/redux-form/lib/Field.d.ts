@@ -58,7 +58,7 @@ export type GenericFieldHTMLAttributes =
     SelectHTMLAttributes<HTMLSelectElement> |
     TextareaHTMLAttributes<HTMLTextAreaElement>;
 
-export class Field<P = GenericFieldHTMLAttributes> extends Component<BaseFieldProps<P> & P> implements GenericField<P> {
+export declare class Field<P = GenericFieldHTMLAttributes> extends Component<BaseFieldProps<P> & P> implements GenericField<P> {
     dirty: boolean;
     name: string;
     pristine: boolean;
